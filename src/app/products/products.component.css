@@ -1,0 +1,36 @@
+.container{
+    display: flex;
+    margin-top: 30px;
+}
+
+.left{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.selected{
+    background-color: chocolate;
+    color: white;
+}
+
+.right{
+    display: flex;
+    width: 50%;
+}
+
+.pName{
+    width: 200px;
+    padding: 10px 15px;
+    border: 1px solid dimgray;
+}
+
+a{
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: black;
+    cursor: pointer;
+}

@@ -1,1 +1,13 @@
-<p>products works!</p>
+<div class="container">
+    <div class="left">
+        <a 
+        routerLinkActive="selected" 
+        [routerLink]="['/products', product.id]"
+         *ngFor="let product of products" class="pName">
+            {{product.name}}
+        </a>
+    </div>
+    <div class="right">
+        Hello
+    </div>
+</div>

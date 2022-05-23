@@ -55,7 +55,11 @@ export class ProductService {
     })
   }
 
-  getAllProducts(id:string){
+  getAllProducts(){
+    return this.products
+  }
+
+  getProduct(id:string){
     return this.products.find(product => product.id === id)
   }
 
@@ -65,11 +69,15 @@ export class ProductService {
   }
 
   updateProduct(id:string, newName:string, newDescription:string, newPrice:number){
-    const product = this.getProducts(id)
+    const product = this.getProduct(id)
     if(product){
       product.name= newName
       product.description = newDescription
       product.price = newPrice
     }
+  }
+
+  log(){
+    console.log(uid());
   }
 }
