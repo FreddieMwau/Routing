@@ -7,12 +7,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { EditProductComponent } from './products/edit-product/edit-product.component';
 import { ProductComponent } from './products/product/product.component';
 import { ProductsComponent } from './products/products.component';
+import { authGuard } from './Services/auth-guard.service';
 
 
 const routes: Routes = [
   {path:"", component:HomePageComponent},
-  {path:"addProducts", component:AddProductComponent},
-  {path:"products", component:ProductsComponent, children:[
+  {path:"addProducts", canActivate: [authGuard], component:AddProductComponent},
+  {path:"products", canActivate: [authGuard], component:ProductsComponent, children:[
     {path: ":id", component: ProductComponent},
     {path: ":id/edit", component: EditProductComponent}
   ]},

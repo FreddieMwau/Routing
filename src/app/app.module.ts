@@ -11,6 +11,8 @@ import { ProductComponent } from './products/product/product.component';
 import { EditProductComponent } from './products/edit-product/edit-product.component';
 import { FormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { authGuard } from './Services/auth-guard.service';
+import { authService } from './Services/auth.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    authService,
+    authGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
