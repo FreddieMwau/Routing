@@ -1,1 +1,22 @@
-<p>edit-product works!</p>
+<div *ngIf="!allowEdit">
+    <h4>You can not edit details of this product !! Contact Admin</h4>
+</div>
+
+<div *ngIf="allowEdit">
+    <div class="content">
+    
+        <h1>Edit Product</h1>
+        <div *ngIf="isValid">
+            <p [style]="{color:'red'}">*Please input all fields</p>
+        </div>
+        <label for="">Product Name</label>
+        <input type="text" [(ngModel)]="productName" class="txt">
+        <label for="">Product Description</label>
+        <input type="text" [(ngModel)]="productDescription" class="txt">
+        <label for="">Product Price</label>
+        <input type="text" [(ngModel)]="productPrice" class="txt">
+    
+        <button (click)="editProduct()" class="btn">Update Product</button>
+    </div>
+
+</div>  

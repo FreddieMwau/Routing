@@ -1,6 +1,7 @@
 .container{
     display: flex;
     margin-top: 30px;
+    justify-content: space-evenly;
 }
 
 .left{
@@ -8,6 +9,8 @@
     width: 50%;
     flex-direction: column;
     gap: 15px;
+    height: 450px;
+    padding: 10px;
 }
 
 .selected{

@@ -9,6 +9,7 @@ import { ProductsComponent } from './products/products.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductComponent } from './products/product/product.component';
 import { EditProductComponent } from './products/edit-product/edit-product.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EditProductComponent } from './products/edit-product/edit-product.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
