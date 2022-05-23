@@ -8,6 +8,7 @@ import { EditProductComponent } from './products/edit-product/edit-product.compo
 import { ProductComponent } from './products/product/product.component';
 import { ProductsComponent } from './products/products.component';
 import { authGuard } from './Services/auth-guard.service';
+import { canDeactivateGuard } from './Services/can-deactivat-guard.service';
 
 
 const routes: Routes = [
@@ -15,7 +16,7 @@ const routes: Routes = [
   {path:"addProducts", canActivate: [authGuard], component:AddProductComponent},
   {path:"products",canActivate: [authGuard], canActivateChild: [authGuard], component:ProductsComponent, children:[
     {path: ":id", component: ProductComponent},
-    {path: ":id/edit", component: EditProductComponent}
+    {path: ":id/edit", component: EditProductComponent, canDeactivate: [canDeactivateGuard]}
   ]},
   {path: 'notfound', component: PageNotFoundComponent},
   // when theres no match to a search route we redirect to not found route

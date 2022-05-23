@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { authGuard } from './Services/auth-guard.service';
 import { authService } from './Services/auth.service';
+import { canDeactivateGuard } from './Services/can-deactivat-guard.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { authService } from './Services/auth.service';
   ],
   providers: [
     authService,
-    authGuard
+    authGuard,
+    canDeactivateGuard
   ],
   bootstrap: [AppComponent]
 })
