@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
+import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanLoad, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from "@angular/router";
 import { Observable } from "rxjs";
 import { authService } from "./auth.service";
 
@@ -7,13 +7,21 @@ import { authService } from "./auth.service";
 @Injectable({
     providedIn: "root"
 })
-export class authGuard implements CanActivate, CanActivateChild{
+export class authGuard implements CanActivate, CanActivateChild, CanLoad{
     constructor(private authService:authService, private router:Router){}
-    canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+    canLoad(route: Route, segments: UrlSegment[]): boolean | Observable<boolean> | Promise<boolean> {
+        if (this.authService.isLoggedIn()) {
+            return true
+        } else {
+            this.router.navigate(["/"])
+            return false
+        }
+    }
+    canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
         // throw new Error("Method not implemented.");
         return this.canActivate(childRoute, state)
     }
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
         // throw new Error("Method not implemented.");
         if(this.authService.isLoggedIn()){
             return true
@@ -22,5 +30,6 @@ export class authGuard implements CanActivate, CanActivateChild{
             return false
         }
     }
+    
     
 }

@@ -24,7 +24,7 @@ import { PageNotFoundComponent } from '../page-not-found/page-not-found.componen
     FormsModule,
     RouterModule.forChild([
       {
-        path: 'p', children: [
+        path: '', children: [
           { path: "addProducts", canActivate: [authGuard], component: AddProductComponent },
           {
             path: "products", canActivate: [authGuard], canActivateChild: [authGuard], component: ProductsComponent, children: [

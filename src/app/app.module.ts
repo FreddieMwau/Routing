@@ -20,7 +20,6 @@ import { canDeactivateGuard } from './Services/can-deactivat-guard.service';
     CommonModule,
     BrowserModule,
     AppRoutingModule,
-    ProductsModule
   ],
   providers: [
     authService,
