@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../Services/product.service';
+import { Observable } from 'rxjs';
+import { canComponentDeactivate } from '../../Services/can-deactivat-guard.service';
+import { ProductService } from '../../Services/product.service';
 
 @Component({
   selector: 'app-add-product',
@@ -7,7 +9,8 @@ import { ProductService } from '../Services/product.service';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
-isInValid:boolean = false
+  isInValid:boolean = false
+  changesSaved:boolean = false
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
@@ -25,4 +28,11 @@ isInValid:boolean = false
   }
   
 
+  // canDeactivate() : boolean | Observable<boolean> | Promise<boolean>{
+  //   if(!this.isInValid){
+  //     return true
+  //   }
+
+  //   if(()){}
+  // };
 }
